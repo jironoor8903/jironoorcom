@@ -1,0 +1,77 @@
+baseURL: ""
+languageCode: en-us
+title: Jiro Noor
+theme: PaperMod
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 10
+    - identifier: blog
+      name: Blog
+      url: /blog
+      weight: 20
+    - identifier: projects
+      name: Projects
+      url: /layouts/404.html
+      # url: /projects
+      weight: 30
+    - identifier: experience
+      name: Experience
+      url: /experience
+      weight: 40
+    - identifier: Social
+      name: Socials
+      url: https://jironoorlinks.netlify.app/
+      weight: 50
+
+
+
+params:
+  # theme
+  showToc: true
+  TocOpen: false
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  hideMeta: false
+
+  # for enchanced SEO
+  env: production
+
+  # Home Page
+  profileMode:
+    enabled: true
+    title: "Jiro Noor"
+    subtitle: CS @ Berkeley
+    imageUrl: "home/jiro.jpg"
+    imageWidth: 200
+    imageHeight: 200 
+    buttons:
+    #   - name: Resume
+    #     url: "https://drive.google.com/file/d/15bupi_Ez5GhhNa2LIT7an1Qxg-0XKYH2/view"
+
+  # List View
+  hideDescriptionInList: false
+
+  # cover image for posts
+  cover:
+    hiddenInList: false # hide on list pages and home
+    hiddenInSingle: false # hide on single page
+
+  socialIcons:
+    - name: "email"
+      url: "mailto:jiro.noor@berkeley.edu"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/jiro-ryzard-noor/"
+    - name: "github"
+      url: "https://github.com/jironoor8903"
+    - name: "cv"
+      url: "home/Resume.pdf"
+
+# allow HTML in MD
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
