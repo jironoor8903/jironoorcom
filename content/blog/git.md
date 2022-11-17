@@ -2,7 +2,7 @@
 title: "Git simplified"
 description: "Personal Git Reference Sheet"
 dateString: November 2022
-draft: false
+draft: true
 # tags: ["ML", "AI", "Python", "Visualization"]
 weight: 105
 cover:
