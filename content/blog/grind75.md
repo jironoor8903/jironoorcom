@@ -9,7 +9,7 @@ cover:
   # # caption: "Photo by Lenin Estrada on Unsplash"
 ---
 
-## Contains Duplicate
+## [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
 
 ### My solution
 
@@ -28,7 +28,7 @@ class Solution:
 Notes:
 Had the difficulty easy so did not take me long. Just glad I revised what a set() is in python and why it is useful. Honestly also could have used an array instead of a set.
 
-## Valid Anagram
+## [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 
 ### My solution
 
@@ -46,7 +46,7 @@ Had the difficulty easy so did not take me long. Just glad I revised what a set(
 
 Notes: Accepted. No comment
 
-## Two Sum
+## [Two Sum](https://leetcode.com/problems/two-sum/)
 
 ### My solution
 
@@ -79,11 +79,11 @@ class Solution:
 
 Notes: Was told to use hashmap so that the soluton could a run time of O(n).
 
-## Group Anagrams
+## [Group Anagrams](https://leetcode.com/problems/group-anagrams/)
 
 ### My Solution (not really)
 
-Unfortunately my solution here did not work after trying. Luckily my brother is a genius and explained this problem to me. Here is his solution
+Unfortunately my solution here did not work after trying. Luckily my brother is a genius and explained this problem to me. Here is his solution.
 
 ```python
 class Solution:
