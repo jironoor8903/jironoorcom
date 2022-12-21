@@ -139,7 +139,7 @@ class Solution:
         return []
 ``` 
 
-### [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
+## [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
 ### My Solution
 
 ```python
@@ -171,7 +171,7 @@ Notes: Passed 18/22 Test cases. However, time limit exceeded.
             postfix *= nums[i]
         return answer
     ```
-### [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/)
+## [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/)
 ### My Solution/neetcode Solution
 
 ```python   
@@ -207,7 +207,7 @@ class Codec:
 ```
 
        
-### [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
+## [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
 ### My Solution
 
 ```python
@@ -226,7 +226,7 @@ class Solution:
         return max(current, maximum)
 ```
 
-### [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
+## [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 ### My Solution
 
 ```python
@@ -249,3 +249,85 @@ class Solution:
 
         return True
 ```
+
+## [3Sum](https://leetcode.com/problems/3sum/)
+### My Solution
+
+```python
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        answer = []
+        nums.sort()
+        for i, a in enumerate(nums):
+            if i > 0 and a == nums[i - 1]:
+                continue
+            l = i +1
+            r = len(nums) - 1
+            while l < r:
+                threeSum = a + nums[l] + nums[r]
+                if threeSum > 0:
+                    r -= 1
+                elif threeSum < 0:
+                    l +=1
+                else:
+                    answer.append([a, nums[l], nums[r]])
+                    l += 1
+                    while (nums[l] == nums[l - 1]):
+                        l += 1
+        return answer
+                    
+``` 
+
+Notes: It is important to sort the array so traversing the rest of the array will be easier. Also, it is important to check if the current number is the same as the previous number. If it is, then we can skip it because we already checked it. The rest of the implementation is similar to 2Sum.
+
+## [Containter with most water](https://leetcode.com/problems/container-with-most-water/)
+### My Solution
+
+```python
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        rightpointer = len(height) - 1
+        rightwidth = len(height)
+        leftpointer = 0
+        leftwidth = 1
+        answer = 0
+        while leftpointer < len(height):
+            while leftpointer < rightpointer:
+                length = min(height[leftpointer],height[rightpointer])
+                width = rightwidth - leftwidth
+                area = length * width
+                answer = max(area, answer)
+                rightpointer -= 1
+                rightwidth -= 1
+            leftpointer += 1
+            leftwidth += 1
+            rightpointer = len(height) - 1
+            rightwidth = rightpointer + 1
+        return answer
+```
+
+Notes: This is a brute force solution. It is not the most efficient solution. However, it is a good starting point. The idea is to have two pointers, one at the beginning and one at the end. Then, we calculate the area of the container. Then, we move the pointer with the smaller height. This is because if we move the pointer with the larger height, the area will always be smaller. We keep doing this until the two pointers meet.
+
+### Revised Solution after watching neetcode video
+
+```python 
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        left = 0
+        right = len(height) - 1
+        answer = 0
+        while left < right:
+            leftpos = left + 1
+            rightpos = right + 1
+            length = rightpos - leftpos
+            width = min(height[left], height[right])
+            area = width * length
+            answer = max(area, answer)
+            
+            if height[left] < height[right]:
+                left += 1
+            else:
+                right -= 1
+        return answer
+```
+In here we will still be using 2 pointers. However instead of calculating every area possible, we will only calculate the area of the container that is formed by the two pointers. Then, we will move the pointer with the smaller height. This is because if we move the pointer with the larger height, the area will always be smaller. We keep doing this until the two pointers meet.
