@@ -331,3 +331,46 @@ class Solution:
         return answer
 ```
 In here we will still be using 2 pointers. However instead of calculating every area possible, we will only calculate the area of the container that is formed by the two pointers. Then, we will move the pointer with the smaller height. This is because if we move the pointer with the larger height, the area will always be smaller. We keep doing this until the two pointers meet.
+
+## [Best time to buy and sell stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+
+### My Solution
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        left = 0
+        right = len(prices) - 1
+        answer = 0
+        while left < len(prices):
+            while left < right:
+                current = prices[right] - prices[left]
+                if current > answer:
+                    answer = current
+                right -= 1
+            left += 1
+            right = len(prices) - 1
+        return answer
+```
+
+Notes: This is a brute force solution. It is not the most efficient solution. However, it is a good starting point. The idea is to have two pointers, one at the beginning and one at the end. Then, we calculate the difference between the two prices. Then, we move the pointer with the smaller price. This is because if we move the pointer with the larger price, the difference will always be smaller. We keep doing this until the two pointers meet.
+
+### Revised Solution after watching neetcode video
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        l = 0
+        r = 1
+        answer = 0
+        while r < len(prices):
+            if prices[r] - prices[l] > 0:
+                profit = prices[r] - prices[l]
+                answer = max(profit, answer)
+            else:
+                l = r
+            r += 1
+        return answer
+```
+
+Notes: In here we will still be using 2 pointers. However instead of calculating every difference possible, we will only calculate the difference of the two pointers. Then, we will move the pointer with the smaller price. This is because if we move the pointer with the larger price, the difference will always be smaller. We keep doing this until the two pointers meet.
