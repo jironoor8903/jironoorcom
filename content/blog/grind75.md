@@ -374,3 +374,67 @@ class Solution:
 ```
 
 Notes: In here we will still be using 2 pointers. However instead of calculating every difference possible, we will only calculate the difference of the two pointers. Then, we will move the pointer with the smaller price. This is because if we move the pointer with the larger price, the difference will always be smaller. We keep doing this until the two pointers meet.
+
+## [Longest Substring without repeating characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+
+### My Solution
+
+```python
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        charSet = set()
+        l = 0
+        res = 0
+
+        for r in range(len(s)):
+            while s[r] in charSet:
+                charSet.remove(s[l])
+                l += 1
+            charSet.add(s[r])
+            res = max(res, r- l + 1)
+        return res
+```
+Notes: This is a sliding window problem. The idea is to have two pointers, one at the beginning and one at the end. Then, we move the right pointer until we find a repeating character. Then, we move the left pointer until we find a non-repeating character. We keep doing this until the right pointer reaches the end of the string.
+
+## [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
+### My Solution (watched neetcode already)
+
+```python
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        l = 0 
+        hashMap = {}
+        res = 0 
+        
+        for r in range(len(s)):
+            hashMap[s[r]] = hashMap.get(s[r], 0) + 1
+
+            while (r - l + 1) - max(hashMap.values()) > k:
+                hashMap[s[l]] -= 1
+                l += 1
+
+            res = max(res, r - l + 1)
+        return res
+```
+Notes: This is a sliding window problem. The idea is to have two pointers, one at the beginning and one at the end. Then, we move the right pointer until we find a repeating character. Then, we move the left pointer until we find a non-repeating character. We keep doing this until the right pointer reaches the end of the string.
+
+## [Valid Paranthesis](https://leetcode.com/problems/valid-parentheses/)
+### My Solution
+
+```python
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        matcher = {")": "(", "}" : "{", "]" : "["}
+        for c in s:
+            if c in matcher:
+                if stack and stack[-1] == matcher[c]:
+                    stack.pop()
+                else:
+                    return False
+            else:
+                stack.append(c)
+        return True if not stack else False
+```
+Notes: This is a stack problem. The idea is to have a stack. Then, we iterate through the string. If the character is an opening bracket, we push it into the stack. If the character is a closing bracket, we check if the top of the stack is the corresponding opening bracket. If it is, we pop the top of the stack. If it is not, we return False. If we reach the end of the string, we check if the stack is empty. If it is, we return True. If it is not, we return False.
+
