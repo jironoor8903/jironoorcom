@@ -438,3 +438,58 @@ class Solution:
 ```
 Notes: This is a stack problem. The idea is to have a stack. Then, we iterate through the string. If the character is an opening bracket, we push it into the stack. If the character is a closing bracket, we check if the top of the stack is the corresponding opening bracket. If it is, we pop the top of the stack. If it is not, we return False. If we reach the end of the string, we check if the stack is empty. If it is, we return True. If it is not, we return False.
 
+## [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+
+### My Solution
+
+```python
+    class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        return min(nums)
+```
+
+I initially laughed because this solution worked. But here is the actual solution with binary search.
+
+```python
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        res = nums[0]
+        l = 0
+        r = len(nums) - 1
+        while l <= r:
+            if nums[l] < nums[r]:
+                return min(res, nums[l])
+            mid = (l + r) // 2 
+            res = min(res, nums[mid])
+            if nums[mid] >= nums[l]:
+                l = mid + 1
+            else:
+                r = mid - 1
+        return res
+```
+
+Notes: This is a binary search problem. The idea is to have two pointers, one at the beginning and one at the end. Then, we calculate the middle of the two pointers. If the middle is greater than the left pointer, we move the left pointer to the middle. If the middle is less than the right pointer, we move the right pointer to the middle. We keep doing this until the two pointers meet. Then, we return the minimum of the two pointers.
+
+# [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+
+### My Solution
+
+```python
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        res = nums[0]
+        l = 0
+        r = len(nums) - 1
+        while l <= r:
+            if nums[l] < nums[r]:
+                return min(res, nums[l])
+            mid = (l + r) // 2 
+            res = min(res, nums[mid])
+            if nums[mid] >= nums[l]:
+                l = mid + 1
+            else:
+                r = mid - 1
+        return res
+```
+
+I have already done this problem before so I somehow already knew how to do it. But the idea is to have two pointers, one at the beginning and one at the end. Then, we calculate the middle of the two pointers. If the middle is greater than the left pointer, we move the left pointer to the middle. If the middle is less than the right pointer, we move the right pointer to the middle. We keep doing this until the two pointers meet. Then, we return the minimum of the two pointers.
