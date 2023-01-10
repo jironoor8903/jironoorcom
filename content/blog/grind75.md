@@ -470,7 +470,7 @@ class Solution:
 
 Notes: This is a binary search problem. The idea is to have two pointers, one at the beginning and one at the end. Then, we calculate the middle of the two pointers. If the middle is greater than the left pointer, we move the left pointer to the middle. If the middle is less than the right pointer, we move the right pointer to the middle. We keep doing this until the two pointers meet. Then, we return the minimum of the two pointers.
 
-# [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+## [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
 ### My Solution
 
@@ -493,3 +493,29 @@ class Solution:
 ```
 
 I have already done this problem before so I somehow already knew how to do it. But the idea is to have two pointers, one at the beginning and one at the end. Then, we calculate the middle of the two pointers. If the middle is greater than the left pointer, we move the left pointer to the middle. If the middle is less than the right pointer, we move the right pointer to the middle. We keep doing this until the two pointers meet. Then, we return the minimum of the two pointers.
+
+## [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/submissions/)
+### My Solution
+
+```python
+class Solution:
+    # Definition for singly-linked list.
+    # class ListNode:
+    #     def __init__(self, val=0, next=None):
+    #         self.val = val
+    #         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        #Jiro's Solution
+        prev = None
+        curr = head
+        while curr:
+            next_temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next_temp
+            
+        return prev
+```
+
+Notes: Draw it out in order to understand it more
