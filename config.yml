@@ -67,8 +67,10 @@ params:
       url: "https://www.linkedin.com/in/jiro-ryzard-noor/"
     - name: "github"
       url: "https://github.com/jironoor8903"
+    # - name: "cv"
+    #   url: "home/Resume.pdf"
     - name: "cv"
-      url: "home/Resume.pdf"
+      url: "https://read.cv/jironoor"
 
 # allow HTML in MD
 markup:
